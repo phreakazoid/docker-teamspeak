@@ -2,6 +2,19 @@ FROM frolvlad/alpine-glibc:latest
 
 MAINTAINER Patrick Eichmann <phreakazoid@phreakazoid.com>
 
+ARG BUILD_DATE
+ARG VCS_REF
+ARG VERSION
+LABEL org.label-schema.build-date=$BUILD_DATE \
+      org.label-schema.docker.dockerfile="/Dockerfile" \
+      org.label-schema.name="docker-teamspeak" \
+      org.label-schema.description="Teamspeak Server on Alpine Linux" \
+      org.label-schema.url="https://github.com/phreakazoid/docker-teamspeak \
+      org.label-schema.vcs-ref=$VCS_REF \
+      org.label-schema.vcs-url="https://github.com/phreakazoid/docker-teamspeak.git" \
+      org.label-schema.version=$VERSION \
+      org.label-schema.schema-version="1.0"
+
 ENV TEAMSPEAK_VERSION 3.0.13.6
 ENV TEAMSPEAK_URL http://dl.4players.de/ts/releases/${TEAMSPEAK_VERSION}/teamspeak3-server_linux_amd64-${TEAMSPEAK_VERSION}.tar.bz2
 ENV TS3_UID 1000
