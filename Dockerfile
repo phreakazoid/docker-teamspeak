@@ -1,6 +1,7 @@
 FROM ubuntu:16.04
 
-ENV TEAMSPEAK_URL http://dl.4players.de/ts/releases/3.0.13.6/teamspeak3-server_linux_amd64-3.0.13.6.tar.bz2
+ENV TEAMSPEAK_VERSION 3.0.13.6
+ENV TEAMSPEAK_URL http://dl.4players.de/ts/releases/${TEAMSPEAK_VERSION}/teamspeak3-server_linux_amd64-${TEAMSPEAK_VERSION}.tar.bz2
 ENV TS3_UID 1000
 
 RUN apt-get update -q \
@@ -14,7 +15,7 @@ RUN apt-get update -q \
   && rm /home/ts3/teamspeak3-server_linux_amd64.tar.bz2 \
   && mkdir -p /home/ts3/data/logs \
   && mkdir -p /home/ts3/data/files \
- # && ln -s /home/ts3/data/files /home/ts3/teamspeak3-server_linux_amd64 \
+  && ln -s /home/ts3/data/files /home/ts3/teamspeak3-server_linux_amd64/files \
   && ln -s /home/ts3/data/ts3server.sqlitedb /home/ts3/teamspeak3-server_linux_amd64/ts3server.sqlitedb \
   && chown -R ts3 /home/ts3 
 # Symlink because i dont know how to move sqlite-db (like dbpath=/data/ts/mysqlite.db)
