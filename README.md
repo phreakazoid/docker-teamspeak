@@ -1,4 +1,4 @@
-[![](https://images.microbadger.com/badges/image/phreakazoid/docker-teamspeak.svg)](https://microbadger.com/images/phreakazoid/docker-teamspeak "Get your own image badge on microbadger.com")
+[![](https://images.microbadger.com/badges/image/phreakazoid/docker-teamspeak:alpine.svg)](https://microbadger.com/images/phreakazoid/docker-teamspeak:alpine "Get your own image badge on microbadger.com")[![](https://images.microbadger.com/badges/version/phreakazoid/docker-teamspeak:alpine.svg)](https://microbadger.com/images/phreakazoid/docker-teamspeak:alpine "Get your own version badge on microbadger.com")[![Docker Pulls](https://img.shields.io/docker/pulls/phreakazoid/docker-teamspeak.svg)](https://hub.docker.com/r/phreakazoid/docker-teamspeak/)[![GitHub issues](https://img.shields.io/github/issues/phreakazoid/docker-teamspeak.svg)](https://github.com/phreakazoid/docker-teamspeak/issues)
 
 ## docker-teamspeak:alpine
 
