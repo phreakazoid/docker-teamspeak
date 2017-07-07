@@ -1,4 +1,4 @@
-## docker-teamspeak3
+## docker-teamspeak
 
 Ubuntu with TS3 Server.
 
