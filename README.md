@@ -2,7 +2,7 @@
 
 Ubuntu with TS3 Server.
 
-[![](https://images.microbadger.com/badges/image/devalx/docker-teamspeak3.svg)](https://microbadger.com/images/devalx/docker-teamspeak3 "Get your own image badge on microbadger.com")
+[![](https://images.microbadger.com/badges/image/phreakazoid/docker-teamspeak.svg)](https://microbadger.com/images/phreakazoid/docker-teamspeak "Get your own image badge on microbadger.com")
 
 ### Summary
 * Ubuntu + Teamspeak 3 Server
@@ -26,29 +26,29 @@ I recommend to use the new 'docker volume' command in conjunction with this TS3-
 #### docker volume create (Since docker-engine 1.9 - RECOMMENDED) 
 ```
 docker volume create --name ts3-data
-docker run --name=ts3 -p 9987:9987/udp -p 30033:30033 -p 10011:10011 -v ts3-data:/home/ts3/data devalx/docker-teamspeak3:latest
+docker run --name=ts3 -p 9987:9987/udp -p 30033:30033 -p 10011:10011 -v ts3-data:/home/ts3/data phreakazoid/docker-teamspeak:latest
 ```
 
 #### data container
 
 ```
 # create the data container
-docker run --name=ts3-data --entrypoint /bin/true devalx/docker-teamspeak3:latest
+docker run --name=ts3-data --entrypoint /bin/true phreakazoid/docker-teamspeak:latest
 # Now start the actual TS3-Server
-docker run --name=ts3 -d --volumes-from ts3-data -p 9987:9987/udp -p 30033:30033 -p 10011:10011 devalx/docker-teamspeak3:latest
+docker run --name=ts3 -d --volumes-from ts3-data -p 9987:9987/udp -p 30033:30033 -p 10011:10011 phreakazoid/docker-teamspeak:latest
 ```
 
 The data-container does not need to be running for this to work.
 
 #### Mounted Host-directory
 ```
-docker run --name ts3 -d -p 9987:9987/udp -p 30033:30033 -p 10011:10011 -v {FOLDER}:/home/ts3/data devalx/docker-teamspeak3:latest
+docker run --name ts3 -d -p 9987:9987/udp -p 30033:30033 -p 10011:10011 -v {FOLDER}:/home/ts3/data phreakazoid/docker-teamspeak:latest
 ```
 
 If you experience permission problems, especially after an upgrade, you can use the TS3_UID-env to set the user for the teamspeak-server process (inside the container). When using an mounted host-directory, the owner of the files will be the UID of this internal user (default is 1000)
 
 ```
-docker run --name ts3 -d -p -e TS3_UID=1001 9987:9987/udp -p 30033:30033 -p 10011:10011 -v {FOLDER}:/home/ts3/data devalx/docker-teamspeak3:latest
+docker run --name ts3 -d -p -e TS3_UID=1001 9987:9987/udp -p 30033:30033 -p 10011:10011 -v {FOLDER}:/home/ts3/data phreakazoid/docker-teamspeak:latest
 ```
 This would change the internal user to an UID of 1001.  
 
@@ -68,6 +68,6 @@ CAUTION: Didnt test if all files are really persisted or if the TS3 process over
 ### SELinux
 If your host uses SELinux it may be necessary to use the **:z** option:
 ```
-docker run --name ts3 -d -p 9987:9987/udp -p 30033:30033 -p 10011:10011 -v /data/teamspeak:/home/ts3/data:z devalx/docker-teamspeak3:latest
+docker run --name ts3 -d -p 9987:9987/udp -p 30033:30033 -p 10011:10011 -v /data/teamspeak:/home/ts3/data:z phreakazoid/docker-teamspeak:latest
 ```
-Also see issue [#6](../../issues/6)
+
