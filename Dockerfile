@@ -1,4 +1,6 @@
-FROM frolvlad/alpine-glibc:alpine-3.56
+FROM frolvlad/alpine-glibc:latest
+
+MAINTAINER Patrick Eichmann <phreakazoid@phreakazoid.com>
 
 ENV TEAMSPEAK_VERSION 3.0.13.6
 ENV TEAMSPEAK_URL http://dl.4players.de/ts/releases/${TEAMSPEAK_VERSION}/teamspeak3-server_linux_amd64-${TEAMSPEAK_VERSION}.tar.bz2
