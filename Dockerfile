@@ -19,6 +19,8 @@ ENV TEAMSPEAK_VERSION 3.1.1
 ENV TEAMSPEAK_URL http://dl.4players.de/ts/releases/${TEAMSPEAK_VERSION}/teamspeak3-server_linux_amd64-${TEAMSPEAK_VERSION}.tar.bz2
 ENV TS3_UID 1000
 
+RUN apk update && apk add ca-certificates && rm -rf /var/cache/apk/*
+
 RUN adduser -S -D -u ${TS3_UID} ts3 \
   && mkdir -p /home/ts3 \
   && wget -q -O /home/ts3/teamspeak3-server_linux_amd64.tar.bz2 ${TEAMSPEAK_URL} \
