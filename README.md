@@ -1,6 +1,6 @@
-[![](https://images.microbadger.com/badges/image/phreakazoid/docker-teamspeak:alpine.svg)](https://microbadger.com/images/phreakazoid/docker-teamspeak:alpine "Get your own image badge on microbadger.com")[![](https://images.microbadger.com/badges/version/phreakazoid/docker-teamspeak:alpine.svg)](https://microbadger.com/images/phreakazoid/docker-teamspeak:alpine "Get your own version badge on microbadger.com")[![Docker Pulls](https://img.shields.io/docker/pulls/phreakazoid/docker-teamspeak.svg)](https://hub.docker.com/r/phreakazoid/docker-teamspeak/)[![GitHub issues](https://img.shields.io/github/issues/phreakazoid/docker-teamspeak.svg)](https://github.com/phreakazoid/docker-teamspeak/issues)
+[![](https://images.microbadger.com/badges/image/phreakazoid/docker-teamspeak:latest.svg)](https://microbadger.com/images/phreakazoid/docker-teamspeak:latest "Get your own image badge on microbadger.com")[![](https://images.microbadger.com/badges/version/phreakazoid/docker-teamspeak:latest.svg)](https://microbadger.com/images/phreakazoid/docker-teamspeak:latest "Get your own version badge on microbadger.com")[![Docker Pulls](https://img.shields.io/docker/pulls/phreakazoid/docker-teamspeak.svg)](https://hub.docker.com/r/phreakazoid/docker-teamspeak/)[![GitHub issues](https://img.shields.io/github/issues/phreakazoid/docker-teamspeak.svg)](https://github.com/phreakazoid/docker-teamspeak/issues)
 
-## docker-teamspeak:alpine
+## docker-teamspeak:latest
 
 Alpine+glibc with TS3 Server.
 
@@ -35,20 +35,20 @@ docker run --name=ts3 -p 9987:9987/udp -p 30033:30033 -p 10011:10011 -v ts3-data
 # create the data container
 docker run --name=ts3-data --entrypoint /bin/true phreakazoid/docker-teamspeak:alpine
 # Now start the actual TS3-Server
-docker run --name=ts3 -d --volumes-from ts3-data -p 9987:9987/udp -p 30033:30033 -p 10011:10011 phreakazoid/docker-teamspeak:alpine
+docker run --name=ts3 -d --volumes-from ts3-data -p 9987:9987/udp -p 30033:30033 -p 10011:10011 phreakazoid/docker-teamspeak:latest
 ```
 
 The data-container does not need to be running for this to work.
 
 #### Mounted Host-directory
 ```
-docker run --name ts3 -d -p 9987:9987/udp -p 30033:30033 -p 10011:10011 -v {FOLDER}:/home/ts3/data phreakazoid/docker-teamspeak:alpine
+docker run --name ts3 -d -p 9987:9987/udp -p 30033:30033 -p 10011:10011 -v {FOLDER}:/home/ts3/data phreakazoid/docker-teamspeak:latest
 ```
 
 If you experience permission problems, especially after an upgrade, you can use the TS3_UID-env to set the user for the teamspeak-server process (inside the container). When using an mounted host-directory, the owner of the files will be the UID of this internal user (default is 1000)
 
 ```
-docker run --name ts3 -d -p -e TS3_UID=1001 9987:9987/udp -p 30033:30033 -p 10011:10011 -v {FOLDER}:/home/ts3/data phreakazoid/docker-teamspeak:alpine
+docker run --name ts3 -d -p -e TS3_UID=1001 9987:9987/udp -p 30033:30033 -p 10011:10011 -v {FOLDER}:/home/ts3/data phreakazoid/docker-teamspeak:latest
 ```
 This would change the internal user to an UID of 1001.  
 
@@ -68,4 +68,4 @@ CAUTION: Didnt test if all files are really persisted or if the TS3 process over
 ### SELinux
 If your host uses SELinux it may be necessary to use the **:z** option:
 ```
-docker run --name ts3 -d -p 9987:9987/udp -p 30033:30033 -p 10011:10011 -v /data/teamspeak:/home/ts3/data:z phreakazoid/docker-teamspeak:alpine
+docker run --name ts3 -d -p 9987:9987/udp -p 30033:30033 -p 10011:10011 -v /data/teamspeak:/home/ts3/data:z phreakazoid/docker-teamspeak:latest
