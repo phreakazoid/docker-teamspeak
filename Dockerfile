@@ -15,7 +15,7 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
       org.label-schema.version=$VERSION \
       org.label-schema.schema-version="1.0"
 
-ENV TEAMSPEAK_VERSION 3.6.1
+ENV TEAMSPEAK_VERSION 3.7.1
 ENV TEAMSPEAK_URL http://dl.4players.de/ts/releases/${TEAMSPEAK_VERSION}/teamspeak3-server_linux_amd64-${TEAMSPEAK_VERSION}.tar.bz2
 ENV TS3_UID 1000
 
